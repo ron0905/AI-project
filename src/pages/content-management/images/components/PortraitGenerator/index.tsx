@@ -55,10 +55,15 @@ const backgrounds = [
 
 const personalities = [
   { value: 'cheerful', label: '明るく活発', prompt: 'cheerful and energetic personality' },
-  { value: 'elegant', label: '優雅で上品', prompt: 'elegant and refined personality' },
-  { value: 'cute', label: '可愛らしい', prompt: 'cute and adorable personality' },
-  { value: 'cool', label: 'クールでかっこいい', prompt: 'cool and stylish personality' },
-  { value: 'mysterious', label: '神秘的', prompt: 'mysterious and enigmatic personality' }
+  { value: 'gentle', label: '優しく温厚', prompt: 'gentle and kind personality' },
+  { value: 'confident', label: '自信家', prompt: 'confident and self-assured personality' },
+  { value: 'shy', label: '控えめ', prompt: 'shy and reserved personality' },
+  { value: 'determined', label: '芯が強い', prompt: 'determined and strong-willed personality' },
+  { value: 'playful', label: '茶目っ気がある', prompt: 'playful and mischievous personality' },
+  { value: 'elegant', label: '上品で落ち着いている', prompt: 'elegant and composed personality' },
+  { value: 'honest', label: '素直で誠実', prompt: 'honest and sincere personality' },
+  { value: 'passionate', label: '情熱的', prompt: 'passionate and enthusiastic personality' },
+  { value: 'caring', label: '世話焼き', prompt: 'caring and nurturing personality' }
 ];
 
 const costumes = [
@@ -94,24 +99,27 @@ const makeupStyles = [
 ];
 
 const brightnessTypes = [
-  { value: 'cheerful', label: '明るい', prompt: 'cheerful and positive personality' },
-  { value: 'energetic', label: '元気', prompt: 'energetic and lively personality' },
-  { value: 'calm', label: '落ち着いている', prompt: 'calm and composed personality' },
+  { value: 'very_bright', label: 'とても明るい', prompt: 'very cheerful and radiant personality' },
+  { value: 'positive', label: '前向き', prompt: 'positive and optimistic personality' },
+  { value: 'balanced', label: 'バランスが取れている', prompt: 'balanced and stable personality' },
+  { value: 'mature', label: '大人びている', prompt: 'mature and sophisticated personality' },
   { value: 'reserved', label: '控えめ', prompt: 'reserved and modest personality' }
 ];
 
 const sociabilityTypes = [
-  { value: 'outgoing', label: '社交的', prompt: 'outgoing and friendly personality' },
-  { value: 'shy', label: '内気', prompt: 'shy and introverted personality' },
-  { value: 'mysterious', label: '神秘的', prompt: 'mysterious and enigmatic personality' },
-  { value: 'friendly', label: '親しみやすい', prompt: 'approachable and warm personality' }
+  { value: 'leader', label: 'リーダーシップがある', prompt: 'natural leader, takes initiative in social situations' },
+  { value: 'supportive', label: 'サポート役', prompt: 'supportive team player, helps others' },
+  { value: 'independent', label: '自立的', prompt: 'independent, comfortable working alone' },
+  { value: 'mediator', label: '調和を重視', prompt: 'mediator, promotes harmony in groups' },
+  { value: 'follower', label: 'フォロワー気質', prompt: 'good follower, works well under direction' }
 ];
 
 const idolQualities = [
-  { value: 'hardworking', label: '努力家', prompt: 'hardworking and dedicated personality' },
-  { value: 'passionate', label: '情熱的', prompt: 'passionate and enthusiastic personality' },
-  { value: 'dreamy', label: '夢見がち', prompt: 'dreamy and idealistic personality' },
-  { value: 'professional', label: 'プロ意識が高い', prompt: 'professional and responsible personality' }
+  { value: 'performer', label: '表現力が豊か', prompt: 'expressive performer with strong stage presence' },
+  { value: 'versatile', label: '多才', prompt: 'versatile entertainer skilled in multiple areas' },
+  { value: 'charismatic', label: 'カリスマ性がある', prompt: 'charismatic idol with strong audience appeal' },
+  { value: 'growing', label: '成長志向', prompt: 'growth-minded idol focused on improvement' },
+  { value: 'unique', label: '個性的', prompt: 'unique idol with distinctive charm' }
 ];
 
 type PersonalityOption = {
@@ -125,29 +133,30 @@ type PersonalityCategory = {
   options: PersonalityOption[];
 };
 
-const personalityTypes: PersonalityCategory[] = [
-  {
-    category: "基本性格",
-    options: [
-      { value: "cheerful", label: "明るい", prompt: "cheerful and positive personality" },
-      { value: "calm", label: "落ち着いている", prompt: "calm and composed personality" },
-      // ... その他のオプション
-    ]
-  },
-  // ... その他のカテゴリー
+const personalityTypes = [
+  { value: 'pure', label: '純真・素直', prompt: 'pure-hearted and genuine personality' },
+  { value: 'strong', label: '芯が強い', prompt: 'strong-willed and resilient personality' },
+  { value: 'calm', label: '落ち着いている', prompt: 'calm and composed personality' },
+  { value: 'creative', label: '創造的', prompt: 'creative and imaginative personality' },
+  { value: 'logical', label: '論理的', prompt: 'logical and analytical personality' },
+  { value: 'emotional', label: '感情豊か', prompt: 'emotionally expressive personality' },
+  { value: 'perfectionist', label: '完璧主義', prompt: 'perfectionist and detail-oriented personality' },
+  { value: 'flexible', label: '柔軟', prompt: 'flexible and adaptable personality' },
+  { value: 'independent', label: '自立的', prompt: 'independent and self-reliant personality' },
+  { value: 'considerate', label: '思いやりがある', prompt: 'considerate and empathetic personality' }
 ];
 
-const personalityImages = [
-  {
-    category: 'キャラクターイメージ',
-    options: [
-      { value: 'cute_idol', label: '王道アイドル', prompt: 'classic cute idol image' },
-      { value: 'cool_beauty', label: 'クールビューティー', prompt: 'cool beauty image' },
-      { value: 'natural', label: 'ナチュラル', prompt: 'natural friendly image' },
-      { value: 'elegant', label: '優雅', prompt: 'elegant graceful image' },
-      { value: 'mysterious', label: '神秘的', prompt: 'mysterious image' }
-    ]
-  }
+const characterImageTypes = [
+  { value: 'cute', label: '王道アイドル', prompt: 'classic idol image, cute and charming' },
+  { value: 'cool', label: 'クールビューティー', prompt: 'cool beauty idol image with elegant presence' },
+  { value: 'natural', label: '親近感のある', prompt: 'natural and approachable idol image' },
+  { value: 'princess', label: 'お姫様系', prompt: 'princess-like idol with graceful demeanor' },
+  { value: 'energetic', label: 'エネルギッシュ', prompt: 'energetic and dynamic idol image' },
+  { value: 'mysterious', label: '神秘的', prompt: 'mysterious and enchanting idol image' },
+  { value: 'intellectual', label: '知的', prompt: 'intellectual and sophisticated idol image' },
+  { value: 'sporty', label: 'スポーティ', prompt: 'sporty and athletic idol image' },
+  { value: 'traditional', label: '和風美人', prompt: 'traditional Japanese beauty idol image' },
+  { value: 'fashion', label: 'ファッショニスタ', prompt: 'fashion-forward trendsetting idol image' }
 ];
 
 type FormFieldProps = {
@@ -236,18 +245,45 @@ const FormField = ({ title, tooltip, children, type = 'select' }: FormFieldProps
   if (type === 'number') {
     return (
       <Grid item xs={12} md={6}>
-        <Box sx={commonBoxStyles}>
+        <FormControl fullWidth>
           {titleElement}
-          <TextField
-            {...(children as any).props}
-            fullWidth
-            variant="standard"
-            InputProps={{
-              disableUnderline: true,
-              ...(children as any).props.InputProps
+          <Select
+            size="small"
+            value={(children as any).props.value}
+            sx={{
+              '& .MuiOutlinedInput-notchedOutline': {
+                display: 'none'
+              },
+              '& .MuiSelect-select': {
+                ...commonBoxStyles,
+                p: 1.5,
+                height: '32px !important',
+                lineHeight: '32px',
+                display: 'flex',
+                alignItems: 'center'
+              }
             }}
-          />
-        </Box>
+          >
+            <Box sx={{ p: 1 }}>
+              <TextField
+                {...(children as any).props}
+                fullWidth
+                variant="standard"
+                size="small"
+                InputProps={{
+                  disableUnderline: true,
+                  sx: { 
+                    height: '32px',
+                    '& input': {
+                      height: '32px',
+                      padding: 0
+                    }
+                  }
+                }}
+              />
+            </Box>
+          </Select>
+        </FormControl>
       </Grid>
     );
   }
@@ -335,10 +371,7 @@ const PortraitGenerator: React.FC = () => {
   const [isGenerating, setIsGenerating] = useState(false);
 
   const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value);
-    if (value >= 18 && value <= 29) {
-      setSettings({...settings, age: value});
-    }
+    setSettings({...settings, age: Number(e.target.value)});
   };
 
   const handleGeneratePreview = () => {
@@ -406,22 +439,23 @@ const PortraitGenerator: React.FC = () => {
             <Grid container spacing={1.5}>
               <FormField 
                 title="年齢" 
-                type="number"
-                tooltip="18歳から29歳までの範囲で設定できます。生成される画像の年齢イメージに影響します。"
+                type="select"
+                tooltip="18歳から26歳までの範囲で設定できます。"
               >
-                <TextField
-                  type="number"
-                  size="small"
+                <Select
                   value={settings.age}
-                  onChange={handleAgeChange}
-                  InputProps={{ 
-                    inputProps: { min: 18, max: 29 }
-                  }}
-                />
+                  onChange={(e) => setSettings({...settings, age: Number(e.target.value)})}
+                >
+                  {Array.from({ length: 9 }, (_, i) => i + 18).map((age) => (
+                    <MenuItem key={age} value={age}>
+                      {age}歳
+                    </MenuItem>
+                  ))}
+                </Select>
               </FormField>
 
               <FormField 
-                title="性格" 
+                title="基本性格" 
                 type="select"
                 tooltip="アイドルの基本的な性格を設定します。"
               >
@@ -429,15 +463,10 @@ const PortraitGenerator: React.FC = () => {
                   value={settings.basePersonality}
                   onChange={(e) => setSettings({...settings, basePersonality: e.target.value})}
                 >
-                  {personalityTypes.map(category => (
-                    <React.Fragment key={category.category}>
-                      <ListSubheader>{category.category}</ListSubheader>
-                      {category.options.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </React.Fragment>
+                  {personalityTypes.map(option => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormField>
@@ -479,7 +508,7 @@ const PortraitGenerator: React.FC = () => {
               <FormField 
                 title="アイドル資質" 
                 type="select"
-                tooltip="アイドルとしての特徴や資質を設定します。"
+                tooltip="アイドルとしての特徴や魅力を設定します。"
               >
                 <Select
                   value={settings.idolQuality}
@@ -502,7 +531,7 @@ const PortraitGenerator: React.FC = () => {
                   value={settings.characterImage}
                   onChange={(e) => setSettings({...settings, characterImage: e.target.value})}
                 >
-                  {personalityImages[0].options.map(option => (
+                  {characterImageTypes.map(option => (
                     <MenuItem key={option.value} value={option.value}>
                       {option.label}
                     </MenuItem>
